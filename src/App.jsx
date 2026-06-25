@@ -14,7 +14,6 @@ const IconActivity = ({ className }) => <svg className={className} xmlns="http:/
 const IconUsers = ({ className }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
 const IconCalendar = ({ className }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
 const IconHardHat = ({ className }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6h0"/><path d="M14 6h0a6 6 0 0 1 6 6v3"/></svg>;
-// Calculator Icons
 const IconCalculator = ({ className }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16.01" y2="14"/><line x1="16" y1="18" x2="16.01" y2="18"/><line x1="16" y1="10" x2="16.01" y2="10"/><line x1="12" y1="14" x2="12.01" y2="14"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="10" x2="12.01" y2="10"/><line x1="8" y1="14" x2="8.01" y2="14"/><line x1="8" y1="18" x2="8.01" y2="18"/><line x1="8" y1="10" x2="8.01" y2="10"/></svg>;
 const IconX = ({ className }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
 const IconDelete = ({ className }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>;
@@ -326,7 +325,7 @@ export default function App() {
     <div className="min-h-screen bg-[#F4F7F6] text-slate-800 font-sans selection:bg-emerald-200 relative pb-32">
       
       {/* --- NAVBAR --- */}
-      <nav className="bg-white/70 backdrop-blur-md border-b border-white/50 sticky top-0 z-40 shadow-sm">
+      <nav className="bg-white/70 backdrop-blur-md border-b border-white/50 sticky top-0 z-40 shadow-sm relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={resetForm}>
             <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-2.5 rounded-xl shadow-lg shadow-emerald-500/20">
@@ -339,7 +338,7 @@ export default function App() {
           </div>
           <div className="flex items-center gap-3">
             {result && (
-              <button onClick={resetForm} className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 shadow-sm px-4 py-2 rounded-lg transition-all active:scale-95 touch-manipulation">
+              <button onClick={resetForm} className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 shadow-sm px-4 py-2 rounded-lg transition-all active:scale-95 touch-manipulation relative z-10">
                 <IconRefreshCw className="w-3.5 h-3.5" /> Reset Form
               </button>
             )}
@@ -348,7 +347,7 @@ export default function App() {
       </nav>
 
       {/* --- MAIN CONTENT --- */}
-      <main className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 py-8 lg:py-12 flex flex-col lg:flex-row gap-10 lg:gap-16">
+      <main className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 py-8 lg:py-12 flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10">
         
         {/* LEFT COLUMN: Input Form */}
         <div className={`w-full ${result || isCalculating ? 'lg:w-[35%]' : 'max-w-xl mx-auto'} transition-all duration-700 ease-in-out`}>
@@ -358,10 +357,11 @@ export default function App() {
             <p className="text-slate-500 text-sm mt-2 leading-relaxed">Pilih usaha Anda. Sistem otomatis menyesuaikan basis pencatatan (Siklus Panen vs Tahunan) sesuai standar sensus.</p>
           </div>
 
-          <div className="bg-white rounded-3xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 sm:p-8 relative">
-            {isCalculating && <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] z-20 rounded-3xl"></div>}
+          {/* PERBAIKAN: Input Container dijamin z-index tinggi agar lolos dari halangan apapun */}
+          <div className="bg-white rounded-3xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 sm:p-8 relative z-20">
+            {isCalculating && <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] z-30 rounded-3xl"></div>}
 
-            <div className="space-y-6">
+            <div className="space-y-6 relative z-20">
               
               <div className="space-y-4 bg-slate-50/50 p-5 rounded-2xl border border-slate-100">
                 <div className="space-y-2">
@@ -369,7 +369,7 @@ export default function App() {
                   <select 
                     value={selectedCategory}
                     onChange={handleCategoryChange}
-                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 text-sm font-semibold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none cursor-pointer relative z-20"
                   >
                     {Object.keys(BUSINESS_DB).map(cat => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -382,7 +382,7 @@ export default function App() {
                   <select 
                     value={selectedBusiness}
                     onChange={(e) => setSelectedBusiness(e.target.value)}
-                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-emerald-700 text-sm font-bold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-emerald-700 text-sm font-bold focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none cursor-pointer relative z-20"
                   >
                     {Object.keys(BUSINESS_DB[selectedCategory]).map(biz => (
                       <option key={biz} value={biz}>
@@ -399,7 +399,7 @@ export default function App() {
                     Luas Lahan Tanam
                     <span className="text-[10px] font-normal text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">Opsional</span>
                   </label>
-                  <div className="relative">
+                  <div className="relative z-20">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <IconMap className="w-4 h-4 text-slate-400" />
                     </div>
@@ -409,7 +409,7 @@ export default function App() {
                       value={formatNumberWithSeparator(luasLahan)}
                       onChange={(e) => handleInputChange(e, setLuasLahan)}
                       placeholder="Contoh: 10.000"
-                      className="w-full pl-12 pr-12 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none"
+                      className="w-full pl-12 pr-12 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none relative z-20"
                     />
                     <div className="absolute inset-y-0 right-0 pr-5 flex items-center pointer-events-none">
                       <span className="text-xs font-semibold text-slate-400">m²</span>
@@ -427,7 +427,7 @@ export default function App() {
                     {isAnnual ? 'Setahun Penuh' : `Per Siklus (${currentBizConfig.cycleMonths} Bln)`}
                   </span>
                 </label>
-                <div className="relative group">
+                <div className="relative group z-20">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <span className="text-sm font-bold text-slate-400 group-focus-within:text-emerald-500 transition-colors">Rp</span>
                   </div>
@@ -437,7 +437,7 @@ export default function App() {
                     value={formatNumberWithSeparator(pendapatanKotor)}
                     onChange={(e) => handleInputChange(e, setPendapatanKotor)}
                     placeholder={isAnnual ? "Omzet kotor selama 1 tahun" : "Hasil panen kotor 1 siklus"}
-                    className="w-full pl-12 pr-4 py-3.5 font-bold bg-white border border-slate-300 rounded-xl text-slate-900 text-base shadow-sm focus:bg-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none"
+                    className="w-full pl-12 pr-4 py-3.5 font-bold bg-white border border-slate-300 rounded-xl text-slate-900 text-base shadow-sm focus:bg-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none relative z-20"
                   />
                 </div>
               </div>
@@ -453,7 +453,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setHasWorkers('tidak')}
-                    className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all touch-manipulation ${
+                    className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all touch-manipulation relative z-20 ${
                       hasWorkers === 'tidak'
                         ? isAnnual ? 'bg-blue-600 border-blue-600 text-white shadow-md' : 'bg-emerald-600 border-emerald-600 text-white shadow-md'
                         : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -464,7 +464,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setHasWorkers('ada')}
-                    className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all touch-manipulation ${
+                    className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all touch-manipulation relative z-20 ${
                       hasWorkers === 'ada'
                         ? isAnnual ? 'bg-blue-600 border-blue-600 text-white shadow-md' : 'bg-emerald-600 border-emerald-600 text-white shadow-md'
                         : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -480,7 +480,7 @@ export default function App() {
                       <label className="text-xs font-bold text-slate-600">
                         {isAnnual ? 'Jumlah Karyawan/Pegawai' : 'Jumlah Pekerja/Buruh'}
                       </label>
-                      <div className="relative">
+                      <div className="relative z-20">
                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                           <IconUsers className="w-3.5 h-3.5 text-slate-400" />
                         </div>
@@ -489,7 +489,7 @@ export default function App() {
                           min="1"
                           value={numWorkers}
                           onChange={(e) => setNumWorkers(e.target.value)}
-                          className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none focus:border-emerald-500"
+                          className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none focus:border-emerald-500 relative z-20"
                         />
                       </div>
                     </div>
@@ -501,7 +501,7 @@ export default function App() {
                           {isAnnual ? 'Per Tahun' : 'Per Siklus'}
                         </span>
                       </label>
-                      <div className="relative">
+                      <div className="relative z-20">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <span className="text-[10px] font-bold text-slate-400">Rp</span>
                         </div>
@@ -511,7 +511,7 @@ export default function App() {
                           value={formatNumberWithSeparator(wagePerWorker)}
                           onChange={(e) => handleInputChange(e, setWagePerWorker)}
                           placeholder={isAnnual ? "Contoh: Gaji 2jt/bln = 24.000.000" : "Total upah 1 siklus panen"}
-                          className="w-full pl-8 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none focus:border-emerald-500"
+                          className="w-full pl-8 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none focus:border-emerald-500 relative z-20"
                         />
                       </div>
                       <p className="text-[10px] text-slate-400 leading-tight pt-1">
@@ -532,7 +532,7 @@ export default function App() {
               <button
                 onClick={generateData}
                 disabled={isCalculating || !pendapatanKotor}
-                className={`w-full py-3.5 mt-6 rounded-xl font-bold text-sm text-white transition-all duration-300 shadow-lg flex items-center justify-center gap-2.5 touch-manipulation
+                className={`w-full py-3.5 mt-6 rounded-xl font-bold text-sm text-white transition-all duration-300 shadow-lg flex items-center justify-center gap-2.5 touch-manipulation relative z-20
                   ${isCalculating 
                     ? 'bg-slate-300 cursor-wait shadow-none text-slate-500' 
                     : (!pendapatanKotor)
@@ -551,7 +551,7 @@ export default function App() {
         </div>
 
         {/* RIGHT COLUMN: Results & Skeleton */}
-        <div className={`w-full ${result || isCalculating ? 'lg:w-[65%] opacity-100' : 'hidden opacity-0'} transition-all duration-700`} ref={resultRef}>
+        <div className={`w-full ${result || isCalculating ? 'lg:w-[65%] opacity-100' : 'hidden opacity-0'} transition-all duration-700 relative z-10`} ref={resultRef}>
           {isCalculating && !result && <ResultSkeleton />}
 
           {result && !isCalculating && (
@@ -757,13 +757,13 @@ export default function App() {
       </main>
 
       {/* --- WORLD-CLASS FLOATING CALCULATOR COMPONENT --- */}
-      {/* UPDATE: Elevated Position to bottom-12/md:bottom-16 */}
-      <div className="fixed bottom-12 right-6 md:bottom-16 md:right-12 z-[100] flex flex-col items-end">
+      {/* PERBAIKAN MUTLAK: `pointer-events-none` ditambahkan pada wrapper ini. Hantu/bayangan transparan dari kotak ini TIDAK AKAN PERNAH BISA MEMBLOKIR KLIK KE FORM LAGI! */}
+      <div className="fixed bottom-8 right-6 md:bottom-12 md:right-12 z-[100] flex flex-col items-end pointer-events-none">
         
-        {/* Calc Panel (Glassmorphism + Scale Animation) */}
-        {/* UPDATE: Added dynamic pointer-events-none to physically disable block when closed */}
+        {/* Calc Panel (Glassmorphism) */}
+        {/* Pointer events hanya nyala (auto) jika statusnya terbuka, jika tertutup tembus pandang mutlak */}
         <div 
-          className={`mb-4 w-[calc(100vw-3rem)] max-w-[300px] bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right
+          className={`mb-4 w-[calc(100vw-3rem)] max-w-[320px] bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right
           ${isCalcOpen ? 'scale-100 opacity-100 translate-y-0 pointer-events-auto visible' : 'scale-75 opacity-0 translate-y-10 pointer-events-none invisible'}`}
         >
           {/* Display */}
@@ -776,7 +776,7 @@ export default function App() {
             </p>
           </div>
           
-          {/* Keypad - Added touch-manipulation to prevent mobile double-tap/delay issues */}
+          {/* Keypad */}
           <div className="grid grid-cols-4 gap-2.5 p-4 bg-white">
             <button onClick={() => handleCalcBtnClick('C')} className="col-span-2 py-3 bg-rose-50 text-rose-600 rounded-xl font-bold hover:bg-rose-100 transition-colors active:scale-95 touch-manipulation">C</button>
             <button onClick={() => handleCalcBtnClick('DEL')} className="py-3 bg-slate-100 text-slate-600 rounded-xl font-bold flex justify-center items-center hover:bg-slate-200 transition-colors active:scale-95 touch-manipulation"><IconDelete className="w-5 h-5"/></button>
@@ -804,6 +804,7 @@ export default function App() {
         </div>
 
         {/* Floating Action Button (FAB) */}
+        {/* FAB harus disetting auto agar icon mengambang ini tetap bisa diklik */}
         <button 
           onClick={() => setIsCalcOpen(!isCalcOpen)}
           className={`pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(0,0,0,0.2)] transition-all duration-300 z-50 touch-manipulation
