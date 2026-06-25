@@ -360,37 +360,38 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F4F7F6] text-slate-800 font-sans selection:bg-emerald-200 relative pb-32 overflow-x-hidden">
       
-      {/* --- MODAL DISCLAIMER (PROFESSIONAL ENTRY) --- */}
+      {/* --- MODAL DISCLAIMER (CONCISE & PROFESSIONAL) --- */}
       {showDisclaimer && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-5 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-white rounded-[28px] shadow-2xl w-full max-w-lg overflow-hidden flex flex-col animate-in zoom-in-95 duration-300">
+          <div className="bg-white rounded-[24px] shadow-2xl w-full max-w-[400px] overflow-hidden flex flex-col animate-in zoom-in-95 duration-300">
             {/* Modal Body */}
-            <div className="p-7 sm:p-10 text-center flex flex-col items-center">
-              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-emerald-100">
-                <IconShieldCheck className="w-8 h-8" />
+            <div className="p-6 sm:p-8 text-center flex flex-col items-center">
+              <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-5 shadow-sm border border-emerald-100">
+                <IconShieldCheck className="w-7 h-7" />
               </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-4 tracking-tight">Pemberitahuan Sistem</h2>
-              <div className="text-slate-500 text-sm leading-relaxed space-y-4 mb-8 text-justify">
-                <p>
-                  Aplikasi <b>AgriSense Core</b> dirancang khusus sebagai alat bantu kalkulasi dan estimasi struktur biaya (cost structure) komoditas lapangan guna menunjang kelancaran pendataan Sensus Ekonomi 2026 (SE2026).
-                </p>
-                <p>
-                  Rasio margin dan komponen biaya di dalam sistem ini didasarkan pada standar kalibrasi kebiasaan regional. Angka yang dihasilkan bersifat <b>proyeksi analitis</b> untuk memudahkan enumerator dalam memvalidasi kewajaran data.
-                </p>
-                <p className="font-semibold text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 text-center">
-                  Harap tetap mengutamakan data riil/faktual yang diberikan oleh responden secara langsung saat melakukan wawancara lapangan.
+              <h2 className="text-xl font-extrabold text-slate-900 mb-2 tracking-tight">Pemberitahuan Sistem</h2>
+              <p className="text-slate-500 text-sm mb-6">
+                Alat bantu estimasi struktur biaya untuk kelancaran <b>Sensus Ekonomi 2026 (SE2026)</b>.
+              </p>
+              
+              {/* Alert Box - Highly Scannable */}
+              <div className="bg-amber-50 border border-amber-200/60 p-4 rounded-2xl text-left flex gap-3 mb-7 w-full">
+                <IconAlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-[13px] text-amber-900 leading-relaxed font-medium">
+                  Angka yang dihasilkan adalah <b>proyeksi analitis</b>. Tetap utamakan <b>data riil/faktual</b> dari responden saat di lapangan.
                 </p>
               </div>
+
               <button 
                 onClick={() => setShowDisclaimer(false)}
                 className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-sm transition-all duration-300 shadow-[0_8px_20px_rgb(0,0,0,0.12)] hover:-translate-y-0.5 active:scale-95 touch-manipulation"
               >
-                Saya Mengerti & Lanjutkan
+                Mengerti & Lanjutkan
               </button>
             </div>
             {/* Modal Footer / Hashtag */}
-            <div className="bg-slate-50 p-5 text-center border-t border-slate-100 flex items-center justify-center">
-              <span className="font-extrabold text-emerald-600/80 tracking-widest text-xs uppercase letter">
+            <div className="bg-slate-50 p-4 text-center border-t border-slate-100 flex items-center justify-center">
+              <span className="font-extrabold text-emerald-600/80 tracking-widest text-[11px] uppercase letter">
                 #AfirmasiRanduagung
               </span>
             </div>
